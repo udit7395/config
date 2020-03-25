@@ -72,7 +72,7 @@ else:
     FA_LIGHTNING = "<span color='yellow'><span font='FontAwesome'>\uf0e7</span></span>"
 
     # stands for plugged in
-    FA_PLUG = "<span font='FontAwesome'>\uf1e6</span>"
+    FA_PLUG = "<span color='{}'><span font='FontAwesome'>\uf1e6</span></span>".format(color(percentleft))
 
     # stands for using battery
     FA_BATTERY = "<span color='{}'><span font='FontAwesome'>\uf240</span></span>".format(color(percentleft))
