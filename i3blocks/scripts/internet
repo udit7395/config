@@ -1,0 +1,24 @@
+#!/bin/bash
+
+ETHERNET_INTERFACE="enp1s0"
+WIFI_INTERFACE="wlp2s0"
+
+## Ping google if successful continue echo `No internet` and exit
+if [ "$(ping -c 1 8.8.8.8 | grep '100% packet loss' )" != "" ]
+then
+    echo "No Internet "
+    exit 0
+fi
+
+if [ -e "/sys/class/net/${ETHERNET_INTERFACE}/operstate" ] && [ "`cat /sys/class/net/${ETHERNET_INTERFACE}/operstate`" = "up" ]
+then
+    echo "Ethernet : "
+    exit 0
+fi
+
+if [ -e "/sys/class/net/${WIFI_INTERFACE}/operstate" ] && [ "`cat /sys/class/net/${WIFI_INTERFACE}/operstate`" = "up" ]
+then
+    echo "Wifi : "
+    exit 0
+fi
+

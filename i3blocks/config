@@ -1,0 +1,40 @@
+command=~/.config/i3blocks/scripts/$BLOCK_NAME
+separator_block_width=30
+markup=none
+
+# Brightness indicator
+[brightness]
+label= 
+interval=once
+signal=10
+color=#FDFF00
+
+# Volume indicator
+[volume]
+label=♪ 
+color=#FA5B3D
+interval=once
+signal=10
+
+# Disk usage
+[disk]
+color=#5DADEC
+label= 
+interval=30
+
+# Disk usage
+[internet]
+interval=10
+color=#87FF2A
+
+# Battery indicator
+[battery2]
+interval=30
+markup=pango
+
+# Date Time
+[time]
+command=date '+%d/%m %A %l:%M %p'
+label= 
+color=#A7F432
+interval=1

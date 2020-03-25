@@ -1,0 +1,44 @@
+# GENERAL
+alias cp="rsync -avh --progress --info=progress2"
+alias update_everything="sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade && sudo apt-get autoremove"
+alias nvim="~/Tools/./nvim.appimage"
+
+alias .1='cd ..'
+alias .2='cd ../../'
+alias .3='cd ../../../'
+alias .4='cd ../../../../'
+alias .5='cd ../../../../..'
+alias c='clear'
+alias h='history'
+
+# ROS
+alias tf='(cd /tmp && rosrun tf view_frames && evince frames.pdf &)'
+
+# DOCKER
+docker_interactive_usb () {
+    sudo docker run --rm -v $PWD:/project -w /project -it --device=/dev/ttyUSB$1 espressif/idf:release-v4.1
+}
+
+docker_interactive () {
+    sudo docker run --rm -v $PWD:/project -w /project -it espressif/idf:release-v4.1
+}
+
+idf_build () {
+    sudo docker run --rm -v $PWD:/project -w /project espressif/idf:release-v4.1 idf.py build
+}
+
+idf_clean () {
+    sudo docker run --rm -v $PWD:/project -w /project espressif/idf:release-v4.1 idf.py fullclean
+}
+
+idf_flash () {
+    sudo docker run --rm -v $PWD:/project -w /project --device=/dev/ttyUSB$1 espressif/idf:release-v4.1 idf.py flash
+}
+
+ifm () {
+    sudo docker run --rm -v $PWD:/project -w /project --device=/dev/ttyUSB$1 espressif/idf:release-v4.1 idf.py flash monitor
+}
+
+alias dim='sudo docker image ls'
+alias dpsa='sudo docker ps -a'
+alias dps='sudo docker ps'

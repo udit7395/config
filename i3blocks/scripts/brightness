@@ -1,0 +1,5 @@
+#!/bin/bash
+
+lux="$(light -G)"
+round_lux=${lux%.*} 
+echo "${round_lux}"
